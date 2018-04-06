@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-ENV KUBECTL_VERSION 1.9.2
+ENV KUBECTL_VERSION 1.10.0
 
 # Install kubectl
 # Note: Latest version may be found on:
