@@ -11,7 +11,9 @@ ADD https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION
 ENV HOME=/config
 
 RUN set -x && \
-    apk add --no-cache curl ca-certificates gettext coreutils bash git && \
+    apk add --no-cache curl ca-certificates gettext coreutils bash git jq && \
+    curl -o /usr/bin/yq -sSL https://github.com/deitch/yq/releases/download/1.1.0/yq-linux-amd64 && \
+    chmod +x /usr/bin/yq && \
     chmod +x /usr/local/bin/kubectl && \
     \
     # Create non-root user (with a randomly chosen UID/GUI).
@@ -26,5 +28,3 @@ RUN wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-lin
     helm version -c
 
 USER kubectl
-
-ENTRYPOINT ["/usr/local/bin/kubectl"]
