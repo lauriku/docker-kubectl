@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
-ENV KUBECTL_VERSION 1.13.0
-ENV HELM_VERSION v2.13.0
+ENV KUBECTL_VERSION 1.14.0
+ENV HELM_VERSION v2.13.1
 
 # Install kubectl
 # Note: Latest version may be found on:
