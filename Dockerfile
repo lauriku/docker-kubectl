@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
-ENV KUBECTL_VERSION 1.14.0
-ENV HELM_VERSION v2.13.1
+ENV KUBECTL_VERSION 1.14.3
+ENV HELM_VERSION 2.14.2
 
 # Install kubectl
 # Note: Latest version may be found on:
@@ -22,8 +22,8 @@ RUN set -x && \
     # Basic check it works.
     kubectl version --client
 
-RUN wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz && \
-    tar -xvf helm-${HELM_VERSION}-linux-amd64.tar.gz && \
+RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
+    tar -xvf helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
     mv linux-amd64/helm /usr/local/bin && \
     helm version -c
 
